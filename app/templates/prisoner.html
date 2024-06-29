@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prisoners List</title>
+    <style>
+        summary {
+            background-color: #aa2310;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        details[open] summary {
+            border-radius: 5px 5px 0 0;
+        }
+
+        details {
+            background: #e4bf3e;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            margin: 20px;
+            background: #fff9f1;
+        }
+
+        h1 {
+            font-size: 1.2em;
+        }
+
+        article > *:first-child {
+            margin: 0;
+        }
+
+        article > * + * {
+            margin: 0.75em 0 0 0;
+        }
+
+        pre {
+            color: white;
+            background: #443c35;
+            padding: 1em;
+            border-radius: 5px;
+        }
+
+        article {
+            padding: 10px;
+            margin: 0;
+        }
+
+        details code {
+            font-size: 1.1em;
+        }
+
+        #charts {
+            margin-top: 20px;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 500px; /* Limit the width */
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 300px !important; /* Set the height */
+        }
+    </style>
+</head>
+<body>
+    <h1>Prisoner list</h1>
+
+    <details>
+        <summary>Prisoner names<code>(click here to see all)</code></summary>
+        <article>
+            <ul id="prisoners-list"></ul>
+        </article>
+    </details>
+
+    <div id="charts">
+        <div class="chart-container">
+            <canvas id="crimeChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="sentenceChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="genderChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="ageChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="prisonPopulationChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='prisoners.js') }}"></script>
+</body>
+</html>
