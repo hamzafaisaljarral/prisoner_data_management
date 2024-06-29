@@ -89,28 +89,22 @@ class PrisonerStatistics(Resource):
         current_user_id = get_jwt_identity()
         user = User.query.get(current_user_id)
         if user:
+            # Fetch all necessary data in one go
+            prisoners = db.session.query(
+                Prisoner.prisoner_id, Prisoner.sentence_years, Prisoner.gender, Crime.crime_name
+            ).join(Crime, Prisoner.crime_id == Crime.crime_id).all()
+
+            # Convert the fetched data to a Pandas DataFrame
+            df = pd.DataFrame(prisoners, columns=['prisoner_id', 'sentence_years', 'gender', 'crime_name'])
+
             # Number of prisoners by crime type
-            crime_count_query = db.session.query(
-                Crime.crime_name, func.count(Prisoner.prisoner_id)
-            ).join(Prisoner, Prisoner.crime_id == Crime.crime_id).group_by(Crime.crime_name).all()
-            crime_count = {crime_name: count for crime_name, count in crime_count_query}
+            crime_count = df.groupby('crime_name')['prisoner_id'].count().to_dict()
 
             # Average sentence length by crime type
-            avg_sentence_query = db.session.query(
-            Crime.crime_name, func.avg(Prisoner.sentence_years)
-            ).join(Prisoner, Prisoner.crime_id == Crime.crime_id).group_by(Crime.crime_name).all()
-
-            # Convert Decimal to float for JSON serialization and round the values
-            average_sentence_by_crime = {
-                crime_name: round(float(avg_sentence), 2) if isinstance(avg_sentence, Decimal) else round(avg_sentence, 2)
-                for crime_name, avg_sentence in avg_sentence_query
-            }
+            average_sentence_by_crime = df.groupby('crime_name')['sentence_years'].mean().round(2).to_dict()
 
             # Gender distribution of prisoners
-            gender_distribution_query = db.session.query(
-                Prisoner.gender, func.count(Prisoner.prisoner_id)
-            ).group_by(Prisoner.gender).all()
-            gender_distribution = {gender: count for gender, count in gender_distribution_query}
+            gender_distribution = df.groupby('gender')['prisoner_id'].count().to_dict()
 
             return {
                 'crime_count': crime_count,
@@ -118,7 +112,7 @@ class PrisonerStatistics(Resource):
                 'gender_distribution': gender_distribution
             }, 200
         else:
-            return jsonify({'message': 'User not found'}), 401
+            return {'message': 'User not found'}, 401
 
 
 class PrisonerResourceDetail(Resource):
@@ -132,7 +126,7 @@ class PrisonerResourceDetail(Resource):
                 return prisoner.to_dict()
             return {'message': 'Prisoner not found'}, 404
         else:
-            return jsonify({'message': 'User not found'}), 401
+            return {'message': 'User not found'}, 401
 
 
 class PrisonerListResource(Resource):
@@ -144,7 +138,7 @@ class PrisonerListResource(Resource):
             prisoners = Prisoner.query.all()
             return [prisoner.to_dict() for prisoner in prisoners]
         else:
-            return jsonify({'message': 'User not found'}), 401
+            return {'message': 'User not found'}, 401
 
 
 class UploadCSV(Resource):
@@ -211,7 +205,7 @@ class AgeDistribution(Resource):
             age_distribution.columns = ['age', 'count']
             return jsonify(age_distribution.to_dict(orient='records'))
         else:
-            return jsonify({'message': 'User not found'}), 401
+            return {'message': 'User not found'}, 401
 
 
 class PrisonPopulation(Resource):
@@ -228,6 +222,6 @@ class PrisonPopulation(Resource):
                              prison_population_query]
             return jsonify(prison_population)
         else:
-            return jsonify({'message': 'User not found'}), 401
+            return {'message': 'User not found'}, 401
 
 
