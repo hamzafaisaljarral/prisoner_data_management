@@ -1,4 +1,4 @@
-Prisoner Management System
+**Prisoner Management System**
 This project is a Prisoner Management System built with Flask, MySQL, and Flask-RESTful.
 Deployed on heroku CLI 
 To directly see the project please go to https://prisoner-management-system-3d0646e3806f.herokuapp.com/login
@@ -17,41 +17,40 @@ That is how the application look
 Prerequisites
 Before running this project, make sure you have the following installed:
 
-Python 3.9 or higher
-MySQL (for local development)
-Git (optional, for version control)
-Installation
-Clone the repository:
+-Python 3.9 or higher
+-MySQL (for local development)
+-Git (optional, for version control)
+-Installation
 
-git clone https://github.com/hamzafaisaljarral/prisoner_data_management.git
-cd prisoner_data_management
+**Clone the repository:**
 
-
-Setup Virtual Environment:
+-git clone https://github.com/hamzafaisaljarral/prisoner_data_management.git
+-cd prisoner_data_management
 
 
-# Install virtualenv if not already installed
-pip install virtualenv
+**Setup Virtual Environment:**
 
-# Create a virtual environment
-virtualenv venv
+
+Install virtualenv if not already installed
+-pip install virtualenv
+
+Create a virtual environment
+-virtualenv venv
 
 # Activate the virtual environment
 # On Windows
-venv\Scripts\activate
+-venv\Scripts\activate
 # On macOS/Linux
-source venv/bin/activate
-Install Dependencies:
+-source venv/bin/activate
 
+# Install Dependencies:
+-pip install -r requirements.txt
+-Create .env file:
 
-pip install -r requirements.txt
-Create .env file:
-
-Create a .env file in the root directory of your project with the following configuration:
-# you can use these that is deployed mySQL DB on heroku you can use it
+# Create a .env file in the root directory of your project with the following configuration:
+**you can use these that is deployed mySQL DB on heroku you can use it**
 SECRET_KEY = 'please-add-something-unique'
 DEV_DATABASE_URL=mysql://u7kx3ipb59dgfnd4:yf4ma1z6fkjt90vp@irkm0xtlo2pcmvvz.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/mode6c9z20vtel4p
-# Create the Test MySQL DB locally to run the test case
 TEST_DATABASE_URL=mysql+pymysql://prison_admin:password@localhost/prison_test
 SQLALCHEMY_DATABASE_URI =mysql://u7kx3ipb59dgfnd4:yf4ma1z6fkjt90vp@irkm0xtlo2pcmvvz.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/mode6c9z20vtel4p
 JWT_SECRET_KEY = 'your_jwt_secret_key'
@@ -61,7 +60,7 @@ mysql -u root -p
 CREATE DATABASE prison_management;
 CREATE DATABASE prisoner_test;
 
-# please replace it with correct credentials 
+# please replace .env with correct credentials 
 SECRET_KEY = 'please-add-something-unique'
 DEV_DATABASE_URL='mysql+pymysql://prison_admin:password@localhost/prison_management'
 TEST_DATABASE_URL=mysql+pymysql://prison_admin:password@localhost/prison_test
@@ -70,14 +69,14 @@ JWT_SECRET_KEY = 'your_jwt_secret_key'
 
 
 
+# Run this after creating .env
+**Apply Migrations:**
+-flask db migrate
+-flask db upgrade
 
-Apply Migrations:
-flask db migrate
-flask db upgrade
 
-
-Run the Application:
-flask run
+**Run the Application:**
+-flask run
 
 The application should now be running locally. Open your web browser and go to http://localhost:5000 to access the application.
 
