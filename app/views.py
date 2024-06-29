@@ -142,55 +142,61 @@ class PrisonerListResource(Resource):
 
 
 class UploadCSV(Resource):
+    @jwt_required()
     def post(self):
-        file = request.files['file']
-        if not file:
-            return {'message': 'No file uploaded'}, 400
+        current_user_id = get_jwt_identity()
+        user = User.query.get(current_user_id)
+        if user:
+            file = request.files['file']
+            if not file:
+                return {'message': 'No file uploaded'}, 400
 
-        stream = StringIO(file.stream.read().decode("UTF8"), newline=None)
-        csv_data = csv.reader(stream)
-        next(csv_data)  # Skip the header row
+            stream = StringIO(file.stream.read().decode("UTF8"), newline=None)
+            csv_data = csv.reader(stream)
+            next(csv_data)  # Skip the header row
 
-        # Define a mapping for the gender values
-        gender_mapping = {
-            'M': 'Male',
-            'F': 'Female',
-            'O': 'Other'
-        }
+            # Define a mapping for the gender values
+            gender_mapping = {
+                'M': 'Male',
+                'F': 'Female',
+                'O': 'Other'
+            }
 
-        for row in csv_data:
-            prisoner_id, name, age, gender, crime, sentence_years, prison = row
+            for row in csv_data:
+                prisoner_id, name, age, gender, crime, sentence_years, prison = row
 
-            # Convert the gender value
-            if gender in gender_mapping:
-                gender = gender_mapping[gender]
-            else:
-                return {'message': f'Invalid gender value: {gender}'}, 400
+                # Convert the gender value
+                if gender in gender_mapping:
+                    gender = gender_mapping[gender]
+                else:
+                    return {'message': f'Invalid gender value: {gender}'}, 400
 
-            crime_name = Crime.query.filter_by(crime_name=crime).first()
-            if not crime_name:
-                crime_name = Crime(crime_name=crime)
-                db.session.add(crime_name)
-                db.session.commit()
+                crime_name = Crime.query.filter_by(crime_name=crime).first()
+                if not crime_name:
+                    crime_name = Crime(crime_name=crime)
+                    db.session.add(crime_name)
+                    db.session.commit()
 
-            prison_name = Prison.query.filter_by(prison_name=prison).first()
-            if not prison_name:
-                prison_name = Prison(prison_name=prison)
-                db.session.add(prison_name)
-                db.session.commit()
+                prison_name = Prison.query.filter_by(prison_name=prison).first()
+                if not prison_name:
+                    prison_name = Prison(prison_name=prison)
+                    db.session.add(prison_name)
+                    db.session.commit()
 
-            prisoner = Prisoner(
-                name=name,
-                age=int(age),
-                gender=gender,
-                crime_id=crime_name.crime_id,
-                sentence_years=int(sentence_years),
-                prison_id=prison_name.prison_id
-            )
-            db.session.add(prisoner)
+                prisoner = Prisoner(
+                    name=name,
+                    age=int(age),
+                    gender=gender,
+                    crime_id=crime_name.crime_id,
+                    sentence_years=int(sentence_years),
+                    prison_id=prison_name.prison_id
+                )
+                db.session.add(prisoner)
 
-        db.session.commit()
-        return {'message': 'Data uploaded successfully'}, 200
+            db.session.commit()
+            return {'message': 'Data uploaded successfully'}, 200
+        else:
+            return {'message': 'User not found'}, 401
 
 
 class AgeDistribution(Resource):
