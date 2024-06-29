@@ -1,1 +1,1 @@
-web: gunicorn prisoner_data_management.wsgi --log-file -
+web: gunicorn wsgi:app --log-file -
