@@ -1,0 +1,1 @@
+web: gunicorn prisoner_data_management.wsgi --log-file -
