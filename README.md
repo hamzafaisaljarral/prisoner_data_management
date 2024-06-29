@@ -102,61 +102,61 @@ Prisoner Details Page: http://localhost:5000/prisoner-details
 <img width="1429" alt="Screenshot 2024-06-30 at 1 41 01 AM" src="https://github.com/hamzafaisaljarral/prisoner_data_management/assets/39766112/4be01e37-b361-4be4-ab36-a77d56edc96d">
 
 API Documentation: After running the app,
-detailed API documentation.
-For using deployed api please use https://prisoner-management-system-3d0646e3806f.herokuapp.com instead of http://127.0.0.1:5000
+detailed API documentation.<br>
+For using deployed api please use https://prisoner-management-system-3d0646e3806f.herokuapp.com instead of http://127.0.0.1:5000<br>
 
-Register User: http://127.0.0.1:5000/api/register  (POST)
-Body:
-json:
+Register User: http://127.0.0.1:5000/api/register  (POST) <br>
+Body: <br>
+json:<br>
 {
-    "username":"newuser",
-    "password":"password123"
-}
+    "username":"newuser",<br>
+    "password":"password123"<br>
+}<br>
 
-Login API: http://127.0.0.1:5000/api/login  (POST)
-body:
-json:
+Login API: http://127.0.0.1:5000/api/login  (POST) <br>
+body:<br>
+json:<br>
 {
-    "username":"newuser",
-    "password":"password123"
-}
+    "username":"newuser",<br>
+    "password":"password123"<br>
+}<br>
 
-Upload Data in csv: http://127.0.0.1:5000/api/upload (POST)
-body:
-form data:
-file:
-Authorization:
-Bearer Token: (paste authorization token)
+Upload Data in csv: http://127.0.0.1:5000/api/upload (POST)<br>
+body:<br>
+form data:<br>
+file:<br>
+Authorization:<br>
+Bearer Token: (paste authorization token) <br>
 
-Get Prisoner : http://127.0.0.1:5000/api/prisoners (GET)
-Authorization:
-Bearer Token: (paste access_token)
+Get Prisoner : http://127.0.0.1:5000/api/prisoners (GET)<br>
+Authorization:<br>
+Bearer Token: (paste access_token)<br>
 
 <img width="1059" alt="Screenshot 2024-06-30 at 1 54 07 AM" src="https://github.com/hamzafaisaljarral/prisoner_data_management/assets/39766112/9cdbbd5e-299d-40c1-a789-25cd3c6b9d0b">
 
-Get prisoner Details: http://127.0.0.1:5000/api/prisoners/2 (GET)
-Authorization:
-Bearer Token: (Paste access_token)
+Get prisoner Details: http://127.0.0.1:5000/api/prisoners/2 (GET)<br>
+Authorization:<br>
+Bearer Token: (Paste access_token)<br>
 <img width="1049" alt="Screenshot 2024-06-30 at 1 55 26 AM" src="https://github.com/hamzafaisaljarral/prisoner_data_management/assets/39766112/3872296f-8c3c-4658-bd78-bede1b31094f">
 
-Get the prisoner Stats : http://127.0.0.1:5000/api/statistics (GET)
-Authorization:
-Bearer Token: (Paste access_token)
-This will return the 
-• Number of prisoners by crime type.
-• Average sentence length by crime type.
-• Gender distribution of prisoners.
+Get the prisoner Stats : http://127.0.0.1:5000/api/statistics (GET)<br>
+Authorization:<br>
+Bearer Token: (Paste access_token)<br>
+This will return the <br>
+• Number of prisoners by crime type.<br>
+• Average sentence length by crime type.<br>
+• Gender distribution of prisoners.<br>
 
 <img width="1058" alt="Screenshot 2024-06-30 at 2 01 25 AM" src="https://github.com/hamzafaisaljarral/prisoner_data_management/assets/39766112/86d6387f-33c6-429a-b6d8-066fd42a0b7f">
 
-Get the prisoner age count : http://127.0.0.1:5000/api/age-distribution (GET)
-Authorization:
-Bearer Token: (Paste access_token)
+Get the prisoner age count : http://127.0.0.1:5000/api/age-distribution (GET)<br>
+Authorization:<br>
+Bearer Token: (Paste access_token)<br>
 <img width="1052" alt="Screenshot 2024-06-30 at 2 05 03 AM" src="https://github.com/hamzafaisaljarral/prisoner_data_management/assets/39766112/fa5ab158-4f0c-4d74-a453-66e1de1bdaa1">
 
-Get the prison population for each prison : http://127.0.0.1:5000/api/prison-population (GET)
-Authorization:
-Bearer Token: (Paste access_token)
+Get the prison population for each prison : http://127.0.0.1:5000/api/prison-population (GET)<br>
+Authorization:<br>
+Bearer Token: (Paste access_token)<br>
 
 <img width="1060" alt="Screenshot 2024-06-30 at 2 07 24 AM" src="https://github.com/hamzafaisaljarral/prisoner_data_management/assets/39766112/ba98cf16-f910-4b2e-810f-bbb8d1647851">
 
