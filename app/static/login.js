@@ -8,7 +8,9 @@ function login() {
   const password = document.getElementById("password").value;
 
   const xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "http://127.0.0.1:5000/api/login");
+  const apiHost = window.location.origin;
+  const loginApiUrl = `${apiHost}/api/login`;
+  xhttp.open("POST", loginApiUrl, true);
   xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
   xhttp.send(
     JSON.stringify({
