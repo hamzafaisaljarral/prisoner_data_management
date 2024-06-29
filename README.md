@@ -1,12 +1,13 @@
-**Prisoner Management System**
-This project is a Prisoner Management System built with Flask, MySQL, and Flask-RESTful.
-Deployed on heroku CLI 
-To directly see the project please go to https://prisoner-management-system-3d0646e3806f.herokuapp.com/login
-you can access application using
-username:hamzafaisal
-password:password123
+**Prisoner Management System** <br>
+This project is a Prisoner Management System built with Flask, MySQL, and Flask-RESTful.<br>
 
-That is how the application look
+Deployed on heroku CLI. <br>
+To directly see the project please go to https://prisoner-management-system-3d0646e3806f.herokuapp.com/login <br>
+you can access application using<br>
+- username:hamzafaisal<br>
+- password:password123<br>
+
+That is how the application look 
 <img width="1431" alt="Screenshot 2024-06-30 at 2 11 09 AM" src="https://github.com/hamzafaisaljarral/prisoner_data_management/assets/39766112/51936dce-df5b-4e5e-a06c-f25a6f074332">
 
 <img width="1423" alt="Screenshot 2024-06-30 at 2 11 26 AM" src="https://github.com/hamzafaisaljarral/prisoner_data_management/assets/39766112/38f24185-b88f-426a-9331-3d5a72f9d1a7">
@@ -14,41 +15,44 @@ That is how the application look
 
 
 
-Prerequisites
-Before running this project, make sure you have the following installed:
+**Prerequisites** <br>
+Before running this project, make sure you have the following installed: <br>
 
--Python 3.9 or higher
--MySQL (for local development)
--Git (optional, for version control)
--Installation
+- Python 3.9 or higher <br>
+- MySQL (for local development) <br>
+- Git (optional, for version control)<br>
+
+
+# Installation
 
 **Clone the repository:**
 
--git clone https://github.com/hamzafaisaljarral/prisoner_data_management.git
--cd prisoner_data_management
+- git clone https://github.com/hamzafaisaljarral/prisoner_data_management.git <br>
+- cd prisoner_data_management <br>
 
 
 **Setup Virtual Environment:**
 
 
-Install virtualenv if not already installed
--pip install virtualenv
+Install virtualenv if not already installed<br>
+- pip install virtualenv <br>
 
-Create a virtual environment
--virtualenv venv
+Create a virtual environment <br>
+- virtualenv venv
 
 # Activate the virtual environment
 # On Windows
--venv\Scripts\activate
+- venv\Scripts\activate <br>
 # On macOS/Linux
--source venv/bin/activate
+- source venv/bin/activate<br>
 
 # Install Dependencies:
--pip install -r requirements.txt
--Create .env file:
+
+- pip install -r requirements.txt <br>
+- Create .env file:<br>
 
 # Create a .env file in the root directory of your project with the following configuration:
-**you can use these that is deployed mySQL DB on heroku you can use it**
+**you can use these that is deployed mySQL DB on heroku you can use it** <br>
 SECRET_KEY = 'please-add-something-unique'
 DEV_DATABASE_URL=mysql://u7kx3ipb59dgfnd4:yf4ma1z6fkjt90vp@irkm0xtlo2pcmvvz.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/mode6c9z20vtel4p
 TEST_DATABASE_URL=mysql+pymysql://prison_admin:password@localhost/prison_test
@@ -56,9 +60,9 @@ SQLALCHEMY_DATABASE_URI =mysql://u7kx3ipb59dgfnd4:yf4ma1z6fkjt90vp@irkm0xtlo2pcm
 JWT_SECRET_KEY = 'your_jwt_secret_key'
 
 # if you have mySQL setup on your system please do following.
-mysql -u root -p
-CREATE DATABASE prison_management;
-CREATE DATABASE prisoner_test;
+- mysql -u root -p <br>
+- CREATE DATABASE prison_management; <br>
+- CREATE DATABASE prisoner_test; <br>
 
 # please replace .env with correct credentials 
 SECRET_KEY = 'please-add-something-unique'
@@ -71,16 +75,16 @@ JWT_SECRET_KEY = 'your_jwt_secret_key'
 
 # Run this after creating .env
 **Apply Migrations:**
--flask db migrate
--flask db upgrade
+- flask db migrate<br>
+- flask db upgrade<br>
 
 
 **Run the Application:**
--flask run
+- flask run <br>
 
-The application should now be running locally. Open your web browser and go to http://localhost:5000 to access the application.
+The application should now be running locally. Open your web browser and go to http://localhost:5000 to access the application.<br>
 
-API Endpoints
+API Endpoints<br>
 Register User: http://127.0.0.1:5000/api/register
 <img width="1037" alt="Screenshot 2024-06-30 at 1 36 53 AM" src="https://github.com/hamzafaisaljarral/prisoner_data_management/assets/39766112/21b8f5cf-f646-4974-b587-fac5e545e1cf">
 
