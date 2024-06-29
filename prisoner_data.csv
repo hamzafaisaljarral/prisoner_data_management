@@ -1,0 +1,51 @@
+prisoner_id,name,age,gender,crime,sentence_years,prison
+1,John Doe,34,M,Murder,25,Barnard Castle
+2,Jane Smith,29,F,Theft,5,Edinburgh
+3,Bob Johnson,42,M,Fraud,10,Glasgow
+4,Alice Brown,30,F,Assault,3,Inverness
+5,Tom White,22,M,Drug Possession,2,Dumfries
+6,Mary Black,45,F,Theft,6,Edinburgh
+7,James Green,37,M,Assault,8,Glasgow
+8,Patricia Miller,28,F,Fraud,7,Inverness
+9,Robert Wilson,33,M,Drug Trafficking,15,Dumfries
+10,Linda Davis,41,F,Murder,20,Barnard Castle
+11,Michael Brown,38,M,Theft,4,Edinburgh
+12,Sarah Johnson,27,F,Assault,2,Glasgow
+13,David Lee,36,M,Drug Trafficking,12,Dumfries
+14,Laura Martin,32,F,Fraud,5,Inverness
+15,Chris Evans,29,M,Theft,3,Edinburgh
+16,Jessica Taylor,40,F,Murder,18,Barnard Castle
+17,Andrew Walker,31,M,Fraud,9,Glasgow
+18,Karen Scott,26,F,Drug Possession,1,Dumfries
+19,Brian Harris,44,M,Assault,6,Inverness
+20,Emily White,35,F,Theft,2,Edinburgh
+21,Jason Moore,39,M,Drug Trafficking,14,Barnard Castle
+22,Rebecca King,33,F,Assault,4,Glasgow
+23,Daniel Wright,28,M,Drug Possession,3,Dumfries
+24,Amy Clark,31,F,Fraud,8,Inverness
+25,Richard Lewis,37,M,Murder,22,Edinburgh
+26,Laura Hall,30,F,Theft,5,Glasgow
+27,George Allen,43,M,Assault,10,Dumfries
+28,Susan Young,29,F,Fraud,6,Inverness
+29,Mark Hernandez,34,M,Drug Trafficking,13,Barnard Castle
+30,Elizabeth Lopez,38,F,Murder,19,Edinburgh
+31,Thomas Hill,36,M,Theft,4,Glasgow
+32,Margaret Nelson,27,F,Assault,3,Inverness
+33,Charles Carter,41,M,Drug Possession,2,Dumfries
+34,Emily Mitchell,45,F,Fraud,7,Edinburgh
+35,Matthew Martinez,32,M,Murder,21,Barnard Castle
+36,Ashley Adams,29,F,Theft,4,Glasgow
+37,Steven Baker,33,M,Assault,5,Inverness
+38,Megan Rivera,40,F,Fraud,8,Dumfries
+39,Kevin Phillips,37,M,Drug Trafficking,16,Edinburgh
+40,Karen Roberts,28,F,Murder,23,Barnard Castle
+41,Ronald Campbell,34,M,Theft,6,Glasgow
+42,Angela Murphy,31,F,Assault,2,Inverness
+43,Ryan Gonzalez,26,M,Drug Possession,3,Dumfries
+44,Shirley Sanchez,39,F,Fraud,9,Edinburgh
+45,Paul Simmons,43,M,Murder,24,Barnard Castle
+46,Nancy Stewart,29,F,Theft,5,Glasgow
+47,Samuel Powell,32,M,Assault,6,Inverness
+48,Jessica Patterson,41,F,Fraud,7,Dumfries
+49,Gregory Collins,36,M,Drug Trafficking,17,Edinburgh
+50,Patricia Hughes,30,F,Murder,20,Barnard Castle
